@@ -9,10 +9,12 @@ html {
   padding: 10px;
   width: 250px;
 
-  position: relative;
+  position: absolute;
   background-color: #fff;
   border-radius: 4px;
   box-shadow: 1px 4px 6px rgba(0, 0, 0, .5);
+  transition: all 250ms linear;
+  z-index: 1;
 }
 
 .polaroid > img {
@@ -28,23 +30,29 @@ html {
   transform: translateX(-50%) translateY(-150%);
 }
 
-figure:first-child {
+.polaroid:first-child {
   transform: rotate(-12deg);
-  z-index: 3;
+  z-index: 1;
   left: 20%;
   top: 100px;
 }
 
-figure:nth-child(2) {
+.polaroid:nth-child(2) {
   transform: rotate(5deg);
-  z-index: 1;
+  z-index: 3;
   left: 30%;
   top: 150px;
 }
 
-figure:last-child {
+.polaroid:last-child {
   transform: rotate(33deg);
   z-index: 2;
   left: 40%;
   top: 100px;
+}
+
+.polaroid:hover {
+  z-index: 1000;
+  transform: rotate(0deg);
+  box-shadow: 10px 10px 5px #888;
 }
